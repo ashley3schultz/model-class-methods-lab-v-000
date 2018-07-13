@@ -30,6 +30,7 @@ class Boat < ActiveRecord::Base
   def self.with_three_classifications
     a = joins(:classifications).group('boats.id').having('COUNT(*) = 3')
     b = all.select { |b| b.classifications.size == 3 }
+    binding.pry
   end
 
 end
