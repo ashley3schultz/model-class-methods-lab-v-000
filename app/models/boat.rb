@@ -28,8 +28,8 @@ class Boat < ActiveRecord::Base
   end
 
   def self.with_three_classifications
-    joins(:classifications).group('boats.id').having('COUNT(*) = 3')
-    #all.select { |b| b.classifications.size == 3 }
+    a = joins(:classifications).group('boats.id').having('COUNT(*) = 3')
+    b = all.select { |b| b.classifications.size == 3 }
   end
 
 end
